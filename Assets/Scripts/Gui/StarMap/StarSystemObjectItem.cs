@@ -1,8 +1,10 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using Galaxy;
 using Services.Localization;
 using Services.Messenger;
 using Services.Resources;
+using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.UI;
 using Star = Galaxy.Star;
@@ -30,6 +32,11 @@ namespace Gui.StarMap
 
             switch (objectType)
             {
+                case StarObjectType.Race:
+                    UnityEngine.Debug.LogError("Setting up race star!!!!!!!!");
+                    _icon.sprite = StarBaseIcon;
+                    _icon.color = Color.red;
+                    break;
                 case StarObjectType.Event:
                     _icon.sprite = BeaconIcon;
                     break;
@@ -45,6 +52,7 @@ namespace Gui.StarMap
                     var ship = star.Boss.CreateFleet().Ships.First();
                     _icon.sprite = resourceLocator.GetSprite(ship.Model.IconImage) ?? resourceLocator.GetSprite(ship.Model.ModelImage);
                     break;
+
                 default:
                     _icon.sprite = SpaceStationIcon;
                     break;

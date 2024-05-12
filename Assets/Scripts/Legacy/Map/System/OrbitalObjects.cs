@@ -286,7 +286,7 @@ namespace StarSystem
                 starBaseEnumerator.MoveNext();
                 CreateCommonObject(starBaseEnumerator.Current, Galaxy.StarObjectType.Arena, color);
 		    }
-		    if (objects.Contain(Galaxy.StarObjectType.Military) && StarObjectType.Military.IsActive(star))
+		    if (objects.Contain(Galaxy.StarObjectType.Military) && StarObjectType.Military.IsActive(star) && !objects.Contain(Galaxy.StarObjectType.Race))//edited
 		    {
                 starBaseEnumerator.MoveNext();
                 CreateCommonObject(starBaseEnumerator.Current, Galaxy.StarObjectType.Military, color);
@@ -316,6 +316,11 @@ namespace StarSystem
                 BeaconObject.SetActive(true);
 		        CreateEventObject(BeaconObject);
 		    }
+			//edited
+			if (objects.Contain(StarObjectType.Race))
+			{
+				PandemicObject.SetActive(false);
+			}
 		}
 
 		private int _orbitRadius;

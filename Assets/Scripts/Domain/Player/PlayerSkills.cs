@@ -121,17 +121,20 @@ namespace GameServices.Player
         public float PriceScale => _database.SkillSettings.MerchantPriceFactor(GetSkillLevels()[SkillType.Trading]);
         public int CraftingLevelModifier => -_database.SkillSettings.CraftingLevelReduction(GetSkillLevels()[SkillType.CraftingLevel]);
         public float CraftingPriceScale => _database.SkillSettings.CraftingPriceFactor(GetSkillLevels()[SkillType.CraftingPrice]);
-
+        private bool _expCapped = false;
         public long MaxShipExperience 
         {
             get
             {
+                if (_expCapped)
+                {
                 if (_database.SkillSettings.DisableExceedTheLimits) 
                     return Maths.Experience.LevelToExp(_database.SkillSettings.MaxPlayerShipsLevel);
                 if (GetSkillLevels()[SkillType.ExceedTheLimits] == 0)
                     return Maths.Experience.LevelToExp(_database.SkillSettings.MaxPlayerShipsLevel);
+                }
 
-                return Maths.Experience.LevelToExp(_database.SkillSettings.IncreasedLevelLimit);
+                return Maths.Experience.LevelToExp(500);//_database.SkillSettings.IncreasedLevelLimit
             }
         }
 

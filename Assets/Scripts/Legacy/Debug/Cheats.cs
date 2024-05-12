@@ -96,7 +96,7 @@ public class Cheats
 		}
         else if (command == "666")
         {
-            var experience = Experience.FromLevel(200);
+            var experience = Experience.FromLevel(417);
             for (var i = 0; i < 3; ++i)
             {
                 _playerFleet.Ships.Add(new CommonShip(_database.GetShipBuild(LegacyShipBuildNames.GetId("MyInvader1"))) { Experience = experience });

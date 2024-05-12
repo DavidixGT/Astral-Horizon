@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using Combat.Component.Ship;
 using Combat.Unit;
 
@@ -79,6 +80,7 @@ namespace Combat.Ai
             if (!_right && !_left && !_joystick && _mouse.IsActive)
             {
                 var direction = _mouse.Position - _ship.Body.Position;
+                //UnityEngine.Debug.LogError(direction + "      00000000000000000");
                 controls.Course = RotationHelpers.Angle(direction);
             }
             else

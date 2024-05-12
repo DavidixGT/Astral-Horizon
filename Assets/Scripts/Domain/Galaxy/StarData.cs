@@ -77,7 +77,7 @@ namespace Galaxy
             if (starId < 24 && _customStarObjects.TryGetValue(starId, out objects))
                 return objects;
 
-            var value = _random.RandomInt(starId, 1000);
+            var value = _random.RandomInt(starId, 1000);// default 1000
             var faction = GetRegion(starId).Faction;
 
             if (value >= 100 && value < 125)
@@ -98,14 +98,18 @@ namespace Galaxy
             if (value >= 500 && value < 510)
                 objects.Add(StarObjectType.Military);
 #endif
+            if (value >= 500 && value < 540)
+                objects.Add(StarObjectType.Military);
             if (value >= 550 && value < 570)
                 objects.Add(StarObjectType.Challenge);
             if (value >= 600 && value < 650 && faction != Faction.Empty)
                 objects.Add(StarObjectType.Hive);
-            if (value >= 700 && value < 720 && faction == Faction.Empty)
+            if (value >= 700 && value < 720 && faction == Faction.Empty)//default 700 and 720
                 objects.Add(StarObjectType.BlackMarket);
-            if (value >= 800 && value < 810 && _holidayManager.IsChristmas)
+            if (value >= 800 && value < 810 && _holidayManager.IsChristmas)// default 800 and 810
                 objects.Add(StarObjectType.Xmas);
+            if (value >= 850 && value < 900 && faction == Faction.Empty)
+                objects.Add(StarObjectType.Race);
 
             return objects;
         }

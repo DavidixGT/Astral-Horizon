@@ -20,6 +20,7 @@ namespace Galaxy
         Event       = 0x0400,
         Xmas        = 0x0800,
         Hive        = 0x1000,
+        Race        = 0x1200,
     }
 
     public static class StarObjectTypeExtensions

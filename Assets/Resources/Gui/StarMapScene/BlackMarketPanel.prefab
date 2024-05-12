@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5019608, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5019608, g: 1, b: 1, a: 0.8784314}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -217,7 +217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 216, y: -141}
+  m_AnchoredPosition: {x: 216, y: -144}
   m_SizeDelta: {x: 368, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &114566680697460902
@@ -577,6 +577,7 @@ MonoBehaviour:
   _class: 2
   _waitOpenAnimationDone: 0
   _waitCloseAnimationDone: 0
+  _initiallyHidden: 0
   _escapeKeyAction: 0
   OnInitializedEvent:
     m_PersistentCalls:
@@ -630,8 +631,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -113.99999}
-  m_SizeDelta: {x: 432, y: 179.99998}
+  m_AnchoredPosition: {x: 240, y: -132}
+  m_SizeDelta: {x: 432, y: 215.99998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222807646000152484
 CanvasRenderer:
@@ -830,8 +831,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -314.5}
-  m_SizeDelta: {x: 432, y: 221}
+  m_AnchoredPosition: {x: 240, y: -352}
+  m_SizeDelta: {x: 432, y: 224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222779292242698174
 CanvasRenderer:
@@ -1133,8 +1134,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 216, y: -46.5}
-  m_SizeDelta: {x: 368, y: 29}
+  m_AnchoredPosition: {x: 216, y: -48}
+  m_SizeDelta: {x: 368, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222081726428310694
 CanvasRenderer:
@@ -1166,7 +1167,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1f7c2b15b1c46c2438125d280e866dde, type: 3}
-    m_FontSize: 28
+    m_FontSize: 31
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10

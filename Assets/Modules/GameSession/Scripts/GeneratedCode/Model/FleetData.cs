@@ -30,6 +30,7 @@ namespace Session.Model
 		{			
 			_parent = parent;
 			_explorationShipId = -1;
+//			UnityEngine.Debug.LogError("232323232323: " + this._ships.Count);
 			_ships = new ObservableList<Model.ShipInfo>(this);
 			UnityEngine.Debug.LogError(_ships.Count);
 			_hangarSlots = new ObservableList<Model.HangarSlotInfo>(this);

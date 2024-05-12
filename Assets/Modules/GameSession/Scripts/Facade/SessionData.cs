@@ -3,6 +3,7 @@ using Session.Content;
 using System.Collections.Generic;
 using Session.Utils;
 using Zenject;
+using System.Diagnostics;
 
 namespace Session
 {
@@ -141,7 +142,9 @@ namespace Session
 			ModId = modId;
 			_dataVersion = 0;
 			_dataChanged = false;
-
+			if (_content.ShipPresets.Presets.Count > 0)
+				UnityEngine.Debug.LogError("66666666666: " + _content.ShipPresets.Presets[0].Id);
+				
 			InitializeContent(_content);
 
 			_dataLoadedTrigger.Fire();

@@ -62,9 +62,13 @@ namespace ViewModel
 			}
 
 			Planets.transform.InitializeElements<PlanetInfo, Planet>(_planetFactory.CreatePlanets(_star.Id), UpdatePlanetInfo, _factory);
-		    ObjectsGroup.transform.InitializeElements<StarSystemObjectItem, StarObjectType>(_star.Objects.ToEnumerable().Where(item => item.IsActive(_star)), UpdateStarObject);
-		}
 
+			//i dont have fucking clue why that works
+			if (_star.Objects.Contain(StarObjectType.Race) && _star.Objects.Contain(StarObjectType.Hive) && _star.Objects.Contain(StarObjectType.Military))
+				ObjectsGroup.transform.InitializeElements<StarSystemObjectItem, StarObjectType>(_star.Objects.ToEnumerable().Where(item => item == StarObjectType.Race), UpdateStarObject);
+			else
+		    	ObjectsGroup.transform.InitializeElements<StarSystemObjectItem, StarObjectType>(_star.Objects.ToEnumerable().Where(item => item.IsActive(_star) && item != StarObjectType.Race), UpdateStarObject);
+		}
 		public void OnObjectClicked(StarSystemObjectItem starSystemObject)
 		{
 			if (_star.Id != _motherShip.CurrentStar.Id) return;
@@ -80,6 +84,7 @@ namespace ViewModel
 
         private void UpdateStarObject(StarSystemObjectItem item, StarObjectType type)
         {
+			//Debug.LogError("StarObject type: " + type);
             item.Initialize(_motherShip.CurrentStar, type, _localization, _resourceLocator);
         }
 

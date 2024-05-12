@@ -18,6 +18,8 @@ namespace Gui.Combat
         {
             if (Pressed && _touchId == data.pointerId)
                 _currentPosition = data.position;
+
+            UnityEngine.Debug.LogError(data.position + "  :mmmmmmmmmmmm");
         }
 
         public void OnBeginDrag(PointerEventData data)

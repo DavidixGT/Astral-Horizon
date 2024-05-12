@@ -73,6 +73,7 @@ namespace GameServices.Player
         {
             DataChanged = true;
             _session.Statistics.UnlockShip(ship.Id);
+            UnityEngine.Debug.LogError("aegdjkasgdjgdjiasdgjasdghastgdjasdg" + ship.Id);
         }
 
         private void OnShipRemoved(IShip ship)
@@ -164,6 +165,7 @@ namespace GameServices.Player
             {
                 try
                 {
+                    //UnityEngine.Debug.LogError("group:" + " ship:" + item.Id);
 					ships.Add(item.ToShip(_database));
                 }
                 catch (System.Exception e)
@@ -179,7 +181,7 @@ namespace GameServices.Player
             _activeShips.Clear();
 			foreach (var item in _session.Fleet.Hangar)
             {
-                UnityEngine.Debug.Log("group:" + item.Index + " ship:" + item.ShipId);
+                //UnityEngine.Debug.LogError("group:" + item.Index + " ship:" + item.ShipId);
                 _activeShips[item.Index] = ships[item.ShipId];
             }
 
@@ -192,7 +194,7 @@ namespace GameServices.Player
 
         private void SaveShips()
         {
-            UnityEngine.Debug.Log("PlayerFleet.SaveShips - " + _ships.Count);
+            UnityEngine.Debug.LogError("PlayerFleet.SaveShips - " + _ships.Count);
 
             _session.Fleet.UpdateShips(_ships);
 

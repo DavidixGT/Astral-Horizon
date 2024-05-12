@@ -33,6 +33,7 @@ namespace Session.Model
 		{
 			int presetsItemCount;
 			presetsItemCount = reader.ReadInt(EncodingType.EliasGamma);
+			UnityEngine.Debug.LogError(presetsItemCount + " presets 1111111111");
 			_presets = new ObservableList<Model.ShipPresetInfo>(presetsItemCount, this);
 			for (int i = 0; i < presetsItemCount; ++i)
 			{

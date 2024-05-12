@@ -118,10 +118,15 @@ public class Star : MonoBehaviour
 		    {
 		        AddIcon(QuestIconPrefab);
 		    }
+
 		    if (objects.Contain(StarObjectType.Survival))
 			{
 				AddIcon(DangerIconPrefab);
 			}
+			else if (objects.Contain(StarObjectType.Race))
+		    {
+		        AddIcon(XmasIconPrefab);
+		    }
 			else if (objects.Contain(StarObjectType.Boss) && !star.Boss.IsDefeated)
 			{
 				AddIcon(BossIconPrefab);

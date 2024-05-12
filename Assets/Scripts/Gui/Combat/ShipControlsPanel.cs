@@ -52,6 +52,7 @@ namespace Gui.Combat
 
         public void OnThrustPressed()
         {
+            UnityEngine.Debug.LogError("Thrust pressed");
             if (_ship.IsActive())
                 _ship.Controls.Throttle = 1;
         }
@@ -229,7 +230,7 @@ namespace Gui.Combat
                 if (_thrustWithJoystick && !(_stopWhenWeaponActive && _activeButtons > 0))
                     _ship.Controls.Throttle = Mathf.Abs(Mathf.DeltaAngle(_ship.Body.Rotation, rotation)) < 30 ? Mathf.Clamp01(_joystickDirection.magnitude * 2) : 0f;
             }
-
+            
             if (_leftPressed)
             {
                 _ship.Controls.Course = _ship.Body.Rotation + 175;
