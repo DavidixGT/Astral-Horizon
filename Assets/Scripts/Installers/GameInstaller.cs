@@ -32,6 +32,7 @@ using UnityEngine;
 using Zenject;
 using CommonComponents.Signals;
 using PlayerInventory = GameServices.Player.PlayerInventory;
+using ViewModel;
 
 namespace Installers
 {
@@ -73,6 +74,7 @@ namespace Installers
             Container.BindTrigger<ShipDestroyedSignal.Trigger>();
 
             Container.Bind<Cheats>().AsCached();
+
             Container.Bind<DatabaseCodesProcessor>().AsCached();
 
             Container.Bind<GuiHelper>().AsCached();

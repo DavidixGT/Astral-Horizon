@@ -61,9 +61,14 @@ namespace Combat.Domain
 
             long exp;
             if (!_playerExperienceData.TryGetValue(ship.ShipData, out exp))
+            {
+                //UnityEngine.Debug.LogError("is it the max level or what?: " + exp);
                 exp = 0;
+            }
+                
 
             exp += (long)((total - _totalExperience) / (1f + ship.ShipData.Model.Layout.CellCount / 100f));
+            //UnityEngine.Debug.LogError("exp to : " + ship.ShipData.Name + "  :  " + exp);
             _playerExperienceData[ship.ShipData] = exp;
 
             _totalExperience = total;

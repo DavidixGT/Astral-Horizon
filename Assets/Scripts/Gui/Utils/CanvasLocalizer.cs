@@ -11,10 +11,11 @@ namespace Gui.Utils
 
         private void Localize(GameObject target)
         {
+            //Debug.Log(_localization + " aihlsdhadilha");
             foreach (var text in target.GetComponentsInChildren<Text>(true))
             {
                 var localized = _localization.GetString(text.text);
-
+                //Debug.LogError(localized + " 111111");
 #if UNITY_EDITOR
                 if (!string.IsNullOrEmpty(localized) && localized[0] == '$')
                 {

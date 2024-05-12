@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Economy.Products;
 using GameModel;
@@ -26,6 +27,7 @@ namespace Combat.Domain
             }
 
             PlayerExperience = ExperienceData.Empty;
+            //UnityEngine.Debug.LogError(combatModel.IsExpAllowed() + " :bwoomp no exp for you if its false that is");
             if (combatModel.IsExpAllowed())
             {
                 var expMultiplier = playerSkills.ExperienceMultiplier;
@@ -35,6 +37,7 @@ namespace Combat.Domain
                     if (exp <= 0)
                         continue;
 
+                    UnityEngine.Debug.LogError("exxxxxxxxpppppppppp:  " + exp);
                     _experience.Add(new ExperienceData(item.Key, exp));
                 }
 

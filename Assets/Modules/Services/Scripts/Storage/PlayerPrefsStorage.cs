@@ -63,7 +63,7 @@ namespace Services.Storage
             {
                 var key = string.IsNullOrEmpty(mod) ? _key : _key + "." + mod;
                 var dataString = PlayerPrefs.GetString(key);
-
+                UnityEngine.Debug.LogError(PlayerPrefs.GetString(key) + "  storage");
                 if (string.IsNullOrEmpty(dataString))
                 {
                     data = null;

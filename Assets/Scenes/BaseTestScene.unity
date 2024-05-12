@@ -196,6 +196,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: $No
   _themeColor: 52
+  _colorMode: 0
   _themeFont: 1
   _themeFontSize: 1
 --- !u!222 &267192
@@ -440,6 +441,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   _themeColor: 50
+  _colorMode: 0
 --- !u!222 &11021385
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -498,6 +500,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   _themeColor: 51
+  _colorMode: 0
 --- !u!114 &145930880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,6 +646,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   _themeColor: 1
+  _colorMode: 0
 --- !u!222 &151099258
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -892,6 +896,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   _themeColor: 0
+  _colorMode: 0
 --- !u!1 &642841782
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,6 +1131,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: Confirmation text
   _themeColor: 100
+  _colorMode: 0
   _themeFont: 3
   _themeFontSize: 8
 --- !u!222 &708208482
@@ -1237,6 +1243,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 100
   _themeColor: 103
+  _colorMode: 0
   _themeFont: 1
   _themeFontSize: 8
 --- !u!1 &960970651
@@ -1299,6 +1306,7 @@ MonoBehaviour:
   _class: 4
   _waitOpenAnimationDone: 0
   _waitCloseAnimationDone: 0
+  _initiallyHidden: 0
   _escapeKeyAction: 2
   OnInitializedEvent:
     m_PersistentCalls:
@@ -1488,6 +1496,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: $Yes
   _themeColor: 52
+  _colorMode: 0
   _themeFont: 1
   _themeFontSize: 1
 --- !u!222 &970667927
@@ -1588,6 +1597,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   _themeColor: 0
+  _colorMode: 0
 --- !u!222 &977837116
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1703,6 +1713,7 @@ MonoBehaviour:
   _class: 4
   _waitOpenAnimationDone: 0
   _waitCloseAnimationDone: 0
+  _initiallyHidden: 0
   _escapeKeyAction: 2
   OnInitializedEvent:
     m_PersistentCalls:
@@ -1907,6 +1918,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   _themeColor: 0
+  _colorMode: 0
 --- !u!222 &1208637467
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1965,6 +1977,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   _themeColor: 0
+  _colorMode: 0
 --- !u!114 &1307172767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2103,6 +2116,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   _themeColor: 51
+  _colorMode: 0
 --- !u!222 &1316630653
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2250,6 +2264,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: $No
   _themeColor: 52
+  _colorMode: 0
   _themeFont: 1
   _themeFontSize: 1
 --- !u!222 &1412035095
@@ -2351,6 +2366,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   _themeColor: 50
+  _colorMode: 0
 --- !u!222 &1456122070
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2449,6 +2465,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   _themeColor: 51
+  _colorMode: 0
 --- !u!222 &1500179363
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2548,6 +2565,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   _themeColor: 50
+  _colorMode: 0
 --- !u!222 &1603606638
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2788,6 +2806,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1672495133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1672495134}
+  - component: {fileID: 1672495135}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1672495134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672495133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2158462, y: 0.08807427, z: -0.012965936}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1672495135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672495133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa08bbf98ee26884da74cddf91677b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1683148906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2886,6 +2948,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   _themeColor: 1
+  _colorMode: 0
 --- !u!222 &1683148910
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2984,6 +3047,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   _themeColor: 51
+  _colorMode: 0
 --- !u!222 &1758203749
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3266,6 +3330,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: $Yes
   _themeColor: 52
+  _colorMode: 0
   _themeFont: 1
   _themeFontSize: 1
 --- !u!222 &1843815519
@@ -3329,6 +3394,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: Confirmation text
   _themeColor: 100
+  _colorMode: 0
   _themeFont: 3
   _themeFontSize: 8
 --- !u!222 &1849892801
@@ -3668,6 +3734,7 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
   _themeColor: 50
+  _colorMode: 0
 --- !u!222 &2108977791
 CanvasRenderer:
   m_ObjectHideFlags: 0

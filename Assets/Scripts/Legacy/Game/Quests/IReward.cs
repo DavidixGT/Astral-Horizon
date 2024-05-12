@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Economy.Products;
 using GameServices.Player;
+using Zenject;
 
 namespace GameModel
 {
@@ -27,7 +28,16 @@ namespace GameModel
 		            item.Consume();
 
 		        foreach (var item in reward.Experience)
-		            item.Ship.Experience = System.Math.Min(item.Ship.Experience - item.ExperienceBefore + item.ExperienceAfter, playerSkills.MaxShipExperience);
+				{
+					long exp = System.Math.Min(item.Ship.Experience - item.ExperienceBefore + item.ExperienceAfter, playerSkills.MaxShipExperience);
+					long expBefore = item.ExperienceBefore;
+					UnityEngine.Debug.LogError("capped exp: " + exp + " ship exp before: " +item.ExperienceBefore + "max exp: " + playerSkills.MaxShipExperience);
+					if (exp == playerSkills.MaxShipExperience)
+						item.Ship.Experience = expBefore;
+					else
+						item.Ship.Experience = exp;
+				}
+		            
 
 		        playerSkills.Experience += reward.PlayerExperience.ExperienceAfter - reward.PlayerExperience.ExperienceBefore;
             }

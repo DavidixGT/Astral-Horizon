@@ -30,6 +30,7 @@ namespace ViewModel
                 var experienceBefore = (Maths.Experience)(long)data.ExperienceBefore;
 
                 var experience = experienceAfter - data.ExperienceBefore;
+				Debug.LogError("111111111111111: " + experience);
 				Name = _localization.GetString("$ShipExperience", _localization.GetString(data.ShipName), experience.ToString());
 				ExperienceText.text = "+" + experience;
 				Icon.sprite = _resourceLocator.GetSprite(data.Ship.Model.ModelImage);

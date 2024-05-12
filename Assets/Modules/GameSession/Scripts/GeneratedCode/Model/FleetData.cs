@@ -6,6 +6,7 @@
 //                                                                               
 //-------------------------------------------------------------------------------
 
+using GameDiagnostics;
 using Session.Utils;
 
 namespace Session.Model
@@ -26,10 +27,11 @@ namespace Session.Model
 		internal IDataChangedCallback Parent { get => _parent; set => _parent = value; }
 
 		public FleetData(IDataChangedCallback parent)
-		{
+		{			
 			_parent = parent;
 			_explorationShipId = -1;
 			_ships = new ObservableList<Model.ShipInfo>(this);
+			UnityEngine.Debug.LogError(_ships.Count);
 			_hangarSlots = new ObservableList<Model.HangarSlotInfo>(this);
 		}
 

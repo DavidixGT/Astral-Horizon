@@ -65,6 +65,7 @@ namespace Gui.MainMenu
 
         public void StartGame()
         {
+            Debug.LogError(_startGameTrigger);
             _startGameTrigger.Fire();
         }
         

@@ -10,7 +10,7 @@ namespace ViewModel
 	public class DevConsoleViewModel : MonoBehaviour
 	{
 	    [Inject] private readonly ISoundPlayer _soundPlayer;
-	    [Inject] private readonly Cheats _cheats;
+	    private Cheats _cheats;
 
         public RectTransform[] Buttons;
 		public AudioClip ClickSound;
@@ -18,9 +18,10 @@ namespace ViewModel
 		public Text DeviceId;
 
 	    [Inject]
-	    private void Initialize(GameSettings gameSettings)
+	    private void Initialize(Cheats cheats)
 	    {
 	        _hash = Security.DebugCommands.GetHashCode(SystemInfo.deviceUniqueIdentifier);
+			_cheats = cheats;
 	    }
 
 		public void OnButtonClicked(string key)

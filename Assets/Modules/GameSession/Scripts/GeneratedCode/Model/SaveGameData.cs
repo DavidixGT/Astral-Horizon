@@ -6,6 +6,7 @@
 //                                                                               
 //-------------------------------------------------------------------------------
 
+using System.Diagnostics;
 using Session.Utils;
 
 namespace Session.Model
@@ -44,7 +45,9 @@ namespace Session.Model
 
 		public SaveGameData(IDataChangedCallback parent)
 		{
+			
 			_parent = parent;
+			UnityEngine.Debug.LogError((_parent == null) + " creating game?????");
 			_game = new Model.GameData(this);
 			_achievements = new Model.Achievements(this);
 			_bosses = new Model.BossData(this);
