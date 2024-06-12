@@ -49,7 +49,7 @@ namespace GameDatabase
                 foreach (var fileInfo in info.GetFiles("*", SearchOption.TopDirectoryOnly))
                 {
                     try
-                    {
+                    {   
                         var mod = new FileDatabaseStorage(fileInfo.FullName);
                         _mods.Add(new ModInfo(mod.Name, mod.Id, fileInfo.FullName));
                     }

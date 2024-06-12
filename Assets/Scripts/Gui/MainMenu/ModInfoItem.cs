@@ -9,14 +9,19 @@ namespace Gui.MainMenu
     {
         [SerializeField] private Text _name;
         [SerializeField] private GameObject _activeModMark;
-
+        private ModCheckBox _modCheckBox;
+        private bool _active;
         public string Id { get; private set; }
 
         public void Initialize(string name, string id, bool active)
         {
+            _active = active;
             _name.text = name;
             Id = id;
-            _activeModMark.gameObject.SetActive(active);
+            _modCheckBox = new ModCheckBox(_activeModMark);
+            
+            _modCheckBox.Check(active);
         }
+        public bool IsEnabled() => _active;
     }
 }

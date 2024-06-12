@@ -57,7 +57,7 @@ public class Cheats
         if (_databaseCodesProcessor.TryExecuteDatabaseCommand(command))
             return true;
 
-		#if UNITY_EDITOR
+		//#if UNITY_EDITOR
 		if (command == "123")
 		{
 		    _playerFleet.Ships.Add(new CommonShip(_database.GetShipBuild(new ItemId<ShipBuild>(49))) { Experience = Maths.Experience.FromLevel(100) });
@@ -99,10 +99,10 @@ public class Cheats
             var experience = Experience.FromLevel(417);
             for (var i = 0; i < 3; ++i)
             {
-                _playerFleet.Ships.Add(new CommonShip(_database.GetShipBuild(LegacyShipBuildNames.GetId("MyInvader1"))) { Experience = experience });
-                _playerFleet.Ships.Add(new CommonShip(_database.GetShipBuild(LegacyShipBuildNames.GetId("MyInvader2"))) { Experience = experience });
-                _playerFleet.Ships.Add(new CommonShip(_database.GetShipBuild(LegacyShipBuildNames.GetId("MyInvader3"))) { Experience = experience });
-                _playerFleet.Ships.Add(new CommonShip(_database.GetShipBuild(LegacyShipBuildNames.GetId("MyInvader4"))) { Experience = experience });
+                _playerFleet.Ships.Add(new CommonShip(_database.GetShipBuild(new ItemId<ShipBuild>(1))) { Experience = experience });
+                //_playerFleet.Ships.Add(new CommonShip(_database.GetShipBuild(LegacyShipBuildNames.GetId("MyInvader2"))) { Experience = experience });
+                //_playerFleet.Ships.Add(new CommonShip(_database.GetShipBuild(LegacyShipBuildNames.GetId("MyInvader3"))) { Experience = experience });
+                //_playerFleet.Ships.Add(new CommonShip(_database.GetShipBuild(LegacyShipBuildNames.GetId("MyInvader4"))) { Experience = experience });
             }
         }
         else if (command == "667")
@@ -112,7 +112,9 @@ public class Cheats
             _playerFleet.Ships.Add(new CommonShip(_database.GetShipBuild(new ItemId<ShipBuild>(267))));
             _playerFleet.Ships.Add(new CommonShip(_database.GetShipBuild(new ItemId<ShipBuild>(235))));
         }
-        #endif
+        else if (command == "1337")
+        		    _playerSkills.Experience = GameModel.Skills.Experience.FromLevel(_playerSkills.Experience.Level + 50);
+        //#endif
 
         if (command == "000")
         {

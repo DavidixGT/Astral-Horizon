@@ -12,6 +12,7 @@ namespace GameDatabase.Storage
             Name = info.Name;
             Id = string.Empty;
             _path = path;
+            
 #if UNITY_EDITOR
             if (TryFindDatabaseVersion(out var version))
                 Version = version;
@@ -20,6 +21,7 @@ namespace GameDatabase.Storage
 
         public void LoadContent(IContentLoader loader)
         {
+            
 #if UNITY_EDITOR
             UnityEditor.AssetDatabase.Refresh();
 #endif
@@ -29,6 +31,7 @@ namespace GameDatabase.Storage
                 var name = UnityEditor.AssetDatabase.GetAssetPath(asset);
 				try
 				{
+                    //Debug.LogError(name);
 					loader.LoadJson(name, asset.text);
 				}
 				catch (System.Exception)

@@ -21,8 +21,11 @@ namespace Combat
 		    [Inject]
 		    private void Initialize(IScene scene, GameSettings gameSettings)
 		    {
+				Debug.Log((scene == null) + "111111111111111111111");
 		        _scene = scene;
+				
 		        _gameSettings = gameSettings;
+								Debug.Log(gameSettings == null);
 		    }
 
             private void Start()

@@ -6,7 +6,8 @@
         "CommonComponents",
         "ServicesFacade",
         "UniRx",
-        "Zenject"
+        "Zenject",
+        "Ionic.Zlib"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

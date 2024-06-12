@@ -23,7 +23,7 @@ namespace GameDatabase.Storage
                     Id = data[1];
                 }
             }
-
+            Debug.LogError(path);
             _path = path;
 
             if (TryFindDatabaseVersion(out var version))

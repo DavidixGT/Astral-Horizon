@@ -3,6 +3,10 @@ using System.IO;
 using Ionic.Zlib;
 using UnityEngine;
 using CommonComponents.Serialization;
+using AstralHorizon.IO;
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
 
 namespace GameDatabase.Storage
 {
@@ -15,12 +19,15 @@ namespace GameDatabase.Storage
         public string Id { get; private set; }
         public Version Version { get; private set; }
         public bool IsEditable => false;
+        private static string _modPath;
+        private static bool _containsHeader = false;
 
         public FileDatabaseStorage(string filename)
         {
             _filename = filename;
-
-            using (var file = new FileStream(_filename, FileMode.Open, FileAccess.Read))
+            _modPath = filename;//@"E:\UnityProjects\LastHope\Astral-Horizon\Mods" + "/Event-Horizon-ES-Mod 0.15.4";
+            //Debug.LogError(filename + "         333333333");
+            using (var file = new FileStream(_modPath, FileMode.Open, FileAccess.Read))//_fileName
             {
                 ReadDataTillContent(file);
             }
@@ -33,9 +40,9 @@ namespace GameDatabase.Storage
 
         public void LoadContent(IContentLoader loader)
         {
-            using var file = new FileStream(_filename, FileMode.Open, FileAccess.Read);
+            using var file = new FileStream(_modPath, FileMode.Open, FileAccess.Read);//_fileName
             var content = ReadDataTillContent(file);
-
+            Debug.LogError("11111111111111111111111111111111: " + Name);
             var itemCount = 0;
             while (true)
             {
@@ -92,12 +99,19 @@ namespace GameDatabase.Storage
         private Stream ReadDataTillContent(FileStream file)
         {
             var obsolete = !TryReadHeader(file);
-            var content = UnpackContent(file);
-
-            if (obsolete)
+            //Debug.LogError(obsolete + "444444444");
+            var content = UnpackContent();
+            //
+            if (!_containsHeader)
                 LoadHeaderDataObsolete(content);
             else
                 LoadHeaderData(content);
+
+            //Debug.Log(content2.ReadString().Length +" first string of the file");
+            /*if (!_containsHeader)
+                LoadHeaderDataObsolete(content2);
+            else
+                LoadHeaderData(content2);*/
 
             return content;
         }
@@ -106,6 +120,7 @@ namespace GameDatabase.Storage
         {
             var position = file.Position;
             var header = file.ReadUInt32();
+            //Debug.Log(header + " :19919191919191");
             if (header != _header)
             {
                 file.Seek(position, SeekOrigin.Begin);
@@ -115,19 +130,28 @@ namespace GameDatabase.Storage
             return true;
         }
 
-        private static Stream UnpackContent(FileStream file)
+        private static Stream UnpackContent(string path = null)
         {
-            var encryptedStream = new Security.EncryptedReadStream(file, (int)(file.Length - file.Position));
+            //UnityEngine.Debug.LogError(file.Length);
+            //@"E:\UnityProjects\LastHope\Astral-Horizon\Mods" + "/Event-Horizon-ES-Mod 0.15.4"
+            //var encryptedStream = new Security.EncryptedReadStream(file, (int)(file.Length - file.Position)); //
+            Stream encryptedStream;
+            if (path == null)
+                encryptedStream = EncryptionRemover.RemoveEncryption(_modPath, ref _containsHeader);
+            else
+                encryptedStream = EncryptionRemover.RemoveEncryption(path, ref _containsHeader);
+
             var zlibStream = new ZlibStream(encryptedStream, CompressionMode.Decompress);
             return zlibStream;
         }
+
 
         private void LoadHeaderData(Stream stream)
         {
             var formatId = stream.ReadInt32();
             Name = stream.ReadString();
             Id = stream.ReadString();
-
+            //Debug.LogError("Name: " + Name);
             var major = stream.ReadInt32();
             var minor = stream.ReadInt32();
 

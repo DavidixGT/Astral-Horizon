@@ -53,17 +53,26 @@ namespace Gui.MainMenu
 
         private void UpdateMods()
         {
+            _enabledMods = 0;
+            _disabledMods= 0;
             _modsGroup.transform.InitializeElements<ModInfoItem, ModInfo>(ModInfo.Default.ToEnumerable().Concat(_database.AvailableMods), UpdateItem);
         }
 
         private void UpdateItem(ModInfoItem item, ModInfo mod)
         {
+            
             var isDefault = string.IsNullOrEmpty(mod.Id);
             var name = isDefault ? _localization.GetString("$NoMods") : mod.Name;
             var active = _database.Id.Equals(mod.Id, StringComparison.OrdinalIgnoreCase);
+            if (active)
+            _enabledMods ++;
+            else
+            _disabledMods ++;
+            //Debug.LogError("2222222222222Update " + _enabledMods + " : "  + _disabledMods);
             item.Initialize(name, mod.Id, active);
         }
-
+        private int _enabledMods;
+        private int _disabledMods;
         private bool _restoreOnNextLogin = false;
     }
 }

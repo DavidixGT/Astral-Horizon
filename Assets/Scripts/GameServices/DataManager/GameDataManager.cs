@@ -82,6 +82,7 @@ namespace GameServices.GameManager
             {
                 SaveSession();
 
+                UnityEngine.Debug.LogError("mods: " + id);
                 if (!_database.TryLoad(id, out error))
                     throw new Exception(error);
 

@@ -12,6 +12,8 @@ namespace Services.Storage
     {
         public bool TryLoad(ISerializableGameData gameData, string mod)
         {
+            if (mod.Length > 0)
+                _modName = "." + mod;
             return TryLoad(mod, out var data) && TryDeserialize(data, gameData, mod);
         }
 
@@ -37,7 +39,9 @@ namespace Services.Storage
                 data.AddRange(ZlibStream.CompressBuffer(gameData.Serialize().ToArray()));
 
                 var serializedData = Convert.ToBase64String(data.ToArray(), Base64FormattingOptions.None);
-                PlayerPrefs.SetString(_key, serializedData);
+                PlayerPrefs.SetString(_key + _modName, serializedData);
+                //PlayerPrefs.SetString(_key, serializedData);
+                UnityEngine.Debug.LogError(_key);
                 PlayerPrefs.Save();
 
                 _currentGameId = gameData.GameId;
@@ -62,8 +66,9 @@ namespace Services.Storage
             try
             {
                 var key = string.IsNullOrEmpty(mod) ? _key : _key + "." + mod;
+                //UnityEngine.Debug.LogError(key);
                 var dataString = PlayerPrefs.GetString(key);
-                UnityEngine.Debug.LogError(PlayerPrefs.GetString(key) + "  storage");
+                //UnityEngine.Debug.LogError(PlayerPrefs.GetString(key) + "  storage");
                 if (string.IsNullOrEmpty(dataString))
                 {
                     data = null;
@@ -122,5 +127,6 @@ namespace Services.Storage
         private readonly string _key = "savegame";
 
         private const int _formatId = 3;
+        private string _modName = "";
     }
 }

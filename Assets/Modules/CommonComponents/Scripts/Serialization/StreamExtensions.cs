@@ -36,6 +36,23 @@ namespace CommonComponents.Serialization
 
             return System.Text.Encoding.UTF8.GetString(buffer);
         }
+        public static byte[] ReadStringByte(this Stream stream)
+        {
+            Span<byte> buffer = stackalloc byte[sizeof(int)];
+            stream.Read(buffer);
+            var size = BitConverter.ToInt32(buffer);
+            if (size == 0) return null;
+
+            if (size < 0xff)
+                buffer = stackalloc byte[size];
+            else
+                buffer = new byte[size];
+
+            var totalRead = stream.Read(buffer);
+            if (totalRead < size) return null;
+
+            return buffer.ToArray();;
+        }
 
         public static byte[] ReadByteArray(this Stream stream)
         {

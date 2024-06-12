@@ -13,6 +13,7 @@ namespace GameServices.Settings
             _musicVolume = new FloatDataItem("music_volume", 1.0f);
             _soundVolume = new FloatDataItem("sound_volume", 0.5f);
             _cameraZoom = new FloatDataItem("camera_zoom", 0.0f);
+            //Debug.Log("Init");
             _language = new StringDataItem("language");
             _rateButtonClicked = new BoolDataItem("settings");
             _signedIn = new BoolDataItem("signedin", true);

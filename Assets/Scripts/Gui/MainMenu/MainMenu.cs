@@ -105,6 +105,7 @@ namespace Gui.MainMenu
         
         public void ReloadDatabase()
         {
+            
             _gameDataManager.LoadMod(_database.Id, true);
         }
 
@@ -175,7 +176,7 @@ namespace Gui.MainMenu
             var gameExists = _gameSession.IsGameStarted();
             _startGameButton.gameObject.SetActive(!gameExists);
             _continueGameButton.gameObject.SetActive(gameExists);
-            _constructorButton.gameObject.SetActive(_database.IsEditable);
+            _constructorButton.gameObject.SetActive(true);
             _reloadDatabaseButton.gameObject.SetActive(_database.IsEditable);
         }
 

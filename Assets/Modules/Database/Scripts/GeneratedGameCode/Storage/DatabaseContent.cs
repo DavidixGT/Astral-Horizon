@@ -18,13 +18,16 @@ namespace GameDatabase.Storage
     {
         public DatabaseContent(IJsonSerializer jsonSerializer, IDataStorage storage)
         {
+
             _serializer = jsonSerializer;
+            UnityEngine.Debug.LogError(this.ToString());
             storage?.LoadContent(this);
             _allowDuplicates = true;
         }
 
         public void LoadParent(IDataStorage storage)
         {
+            UnityEngine.Debug.LogError(this.ToString());
             storage?.LoadContent(this);
         }
 

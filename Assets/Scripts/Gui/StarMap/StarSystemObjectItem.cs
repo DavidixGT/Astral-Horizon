@@ -4,7 +4,7 @@ using Galaxy;
 using Services.Localization;
 using Services.Messenger;
 using Services.Resources;
-using UnityEditor.MemoryProfiler;
+//using UnityEditor.MemoryProfiler;
 using UnityEngine;
 using UnityEngine.UI;
 using Star = Galaxy.Star;
